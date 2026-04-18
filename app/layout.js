@@ -1,4 +1,5 @@
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata = {
   title: "College Park Garage Pros | Professional Garage Door Services",
@@ -17,7 +18,21 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D97856XG6R"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D97856XG6R');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
