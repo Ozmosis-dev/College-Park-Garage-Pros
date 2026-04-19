@@ -7,6 +7,7 @@
   --surface-high: #e6e8ea;
   --surface-highest: #e0e3e5;
   --surface-dim: #d8dadc;
+  --surface-navy-deep: #07163f;
   --white: #ffffff;
   --primary: #00236f;
   --primary-container: #1e3a8a;
@@ -14,6 +15,7 @@
   --secondary-container: #dc2626;
   --text: #191c1e;
   --text-muted: #444651;
+  --text-nav: #5a6270;
   --outline: #757682;
   --outline-ghost: rgba(117, 118, 130, 0.2);
   --nav-shadow: rgba(0, 35, 111, 0.1);
@@ -44,6 +46,31 @@ body {
   font-family: var(--font-body);
 }
 
+/* Skip to content link — visible only on keyboard focus */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  transition: top 200ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Global focus styles */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -65,10 +92,17 @@ main {
   overflow-x: hidden;
 }
 
+/* Scroll offset for fixed nav */
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 .shell {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
 }
+
+/* ─── Navigation ─────────────────────────────────────── */
 
 .topbar {
   position: fixed;
@@ -105,9 +139,9 @@ main {
 
 .nav-link {
   position: relative;
-  color: #5a6270;
+  color: var(--text-nav);
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .nav-link:hover,
@@ -131,6 +165,30 @@ main {
   color: var(--primary);
 }
 
+/* Hamburger toggle */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  transition: color 160ms ease;
+}
+
+.nav-toggle:hover {
+  color: var(--secondary);
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -141,6 +199,7 @@ main {
   padding: 1rem 1.5rem;
   font-weight: 800;
   letter-spacing: 0.02em;
+  cursor: pointer;
   transition: transform 160ms ease, background-color 160ms ease, color 160ms ease,
     border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -171,6 +230,8 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(12px);
 }
+
+/* ─── Hero ───────────────────────────────────────────── */
 
 .hero {
   position: relative;
@@ -245,21 +306,7 @@ main {
   margin-top: 2.5rem;
 }
 
-.hero-blueprint {
-  position: absolute;
-  inset: auto 0 0 auto;
-  width: min(32vw, 28rem);
-  height: 100%;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.hero-blueprint img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(1) invert(1);
-}
+/* ─── Sections ───────────────────────────────────────── */
 
 .section {
   padding: 6rem 0;
@@ -269,8 +316,9 @@ main {
   font-size: clamp(2.25rem, 4vw, 3.5rem);
 }
 
+/* White sections for clear contrast rhythm */
 .section-bright {
-  background: var(--surface-bright);
+  background: var(--white);
 }
 
 .section-muted {
@@ -281,8 +329,9 @@ main {
   background: var(--white);
 }
 
+/* Elevated gray for alternating sections — distinct from white */
 .section-default {
-  background: var(--surface);
+  background: var(--surface-low);
 }
 
 .section-high {
@@ -310,6 +359,8 @@ main {
   color: rgba(220, 231, 255, 0.9);
 }
 
+/* ─── Layout Grids ───────────────────────────────────── */
+
 .feature-grid,
 .choose-grid,
 .team-grid,
@@ -336,6 +387,7 @@ main {
   align-items: center;
   gap: 0.85rem;
 }
+
 .image-stack {
   position: relative;
 }
@@ -373,6 +425,8 @@ main {
   border: 0.25rem solid rgba(0, 35, 111, 0.06);
 }
 
+/* ─── Section Headings ───────────────────────────────── */
+
 .section-heading {
   margin-bottom: 3rem;
 }
@@ -403,6 +457,8 @@ main {
   font-weight: 800;
 }
 
+/* ─── Gallery / Transformation ───────────────────────── */
+
 .transformation-grid,
 .service-grid,
 .review-grid {
@@ -423,7 +479,7 @@ main {
 .transformation-card p {
   margin: 1rem 0 0;
   font-style: italic;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--primary);
 }
 
@@ -431,7 +487,7 @@ main {
   display: inline-block;
   margin-bottom: 0.5rem;
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -443,6 +499,8 @@ main {
 .label.accent {
   color: var(--secondary);
 }
+
+/* ─── Services ───────────────────────────────────────── */
 
 .service-grid,
 .review-grid {
@@ -466,6 +524,7 @@ main {
 .service-card:hover {
   transform: translateY(-4px);
   background: var(--primary);
+  border-top-color: var(--secondary);
 }
 
 .service-icon,
@@ -522,6 +581,8 @@ main {
   color: var(--white);
 }
 
+/* ─── Metrics Band ───────────────────────────────────── */
+
 .metrics-band {
   padding: 4rem 0;
   background: linear-gradient(135deg, var(--primary-container), var(--primary));
@@ -542,18 +603,16 @@ main {
   letter-spacing: -0.05em;
 }
 
-.metric-value.accent {
-  color: #ff7d7d;
-}
-
 .metric-label {
   margin-top: 0.5rem;
   color: rgba(220, 231, 255, 0.88);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+
+/* ─── Benefits / Why Choose Us ───────────────────────── */
 
 .benefit-list {
   display: grid;
@@ -592,9 +651,11 @@ main {
   height: 100%;
 }
 
+/* ─── Reviews ────────────────────────────────────────── */
+
 .review-card {
   background: var(--white);
-  border-left: 0.25rem solid var(--secondary);
+  border-top: 0.2rem solid var(--secondary);
 }
 
 .stars {
@@ -620,6 +681,7 @@ main {
   align-items: center;
   gap: 1rem;
 }
+
 .reviewer-badge {
   display: grid;
   place-items: center;
@@ -636,6 +698,8 @@ main {
   letter-spacing: 0.1em;
 }
 
+/* ─── Credentials ────────────────────────────────────── */
+
 .credential-list,
 .faq-list,
 .area-list {
@@ -650,8 +714,10 @@ main {
   background: var(--surface);
   box-shadow: 0 10px 24px rgba(0, 35, 111, 0.06);
   color: var(--primary);
-  font-weight: 800;
+  font-weight: 700;
 }
+
+/* ─── FAQ ────────────────────────────────────────────── */
 
 .faq-shell {
   max-width: 56rem;
@@ -659,7 +725,7 @@ main {
 
 .faq-item {
   border-radius: var(--radius-md);
-  background: var(--surface-low);
+  background: var(--surface-container);
   padding: 1.25rem 1.5rem;
 }
 
@@ -670,7 +736,7 @@ main {
   gap: 1rem;
   cursor: pointer;
   list-style: none;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--primary);
 }
 
@@ -684,10 +750,20 @@ main {
   line-height: 1.75;
 }
 
-.faq-plus {
+/* FAQ open/close indicator */
+.faq-plus::after {
+  content: "+";
   font-size: 1.25rem;
   color: var(--outline);
+  transition: color 160ms ease;
 }
+
+details[open] .faq-plus::after {
+  content: "−";
+  color: var(--primary);
+}
+
+/* ─── Service Areas ──────────────────────────────────── */
 
 .map-frame {
   min-height: 25rem;
@@ -707,6 +783,8 @@ main {
 .area-item {
   color: var(--white);
 }
+
+/* ─── Contact ────────────────────────────────────────── */
 
 .contact-card {
   overflow: hidden;
@@ -740,6 +818,12 @@ main {
   font-family: var(--font-headline);
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: 800;
+  color: var(--white);
+  transition: opacity 160ms ease;
+}
+
+.contact-phone:hover {
+  opacity: 0.85;
 }
 
 .contact-phone-icon {
@@ -766,7 +850,7 @@ main {
 
 .quote-form label span {
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--primary);
@@ -788,7 +872,7 @@ main {
 .quote-form input:focus,
 .quote-form select:focus,
 .quote-form textarea:focus {
-  border-color: var(--outline-ghost);
+  border-color: var(--primary);
   box-shadow: 0 0 0 4px rgba(0, 35, 111, 0.08);
   background: var(--white);
 }
@@ -803,9 +887,11 @@ main {
   letter-spacing: 0.16em;
 }
 
+/* ─── Footer ─────────────────────────────────────────── */
+
 .site-footer {
   padding: 4rem 0 2rem;
-  background: #07163f;
+  background: var(--surface-navy-deep);
   color: var(--white);
 }
 
@@ -824,6 +910,7 @@ main {
 .site-footer h3 {
   margin-bottom: 1rem;
   font-size: 0.76rem;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -833,6 +920,11 @@ main {
   display: block;
   margin: 0.55rem 0;
   color: rgba(226, 232, 240, 0.8);
+  transition: color 160ms ease;
+}
+
+.site-footer a:hover {
+  color: var(--white);
 }
 
 .footer-phone {
@@ -848,6 +940,8 @@ main {
   text-align: center;
 }
 
+/* ─── Icons ──────────────────────────────────────────── */
+
 .icon {
   width: 1.15rem;
   height: 1.15rem;
@@ -857,10 +951,43 @@ main {
   color: var(--secondary);
 }
 
+/* ─── Responsive: Tablet (≤ 980px) ──────────────────── */
+
 @media (max-width: 980px) {
-  .desktop-only,
-  .nav-links,
-  .hero-blueprint {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Mobile nav: hidden by default, shown when nav-open class is added */
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem 0 1rem;
+    border-top: 1px solid var(--outline-ghost);
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--outline-ghost);
+  }
+
+  .nav-link.active::after {
     display: none;
   }
 
@@ -902,6 +1029,8 @@ main {
   }
 }
 
+/* ─── Responsive: Mobile (≤ 720px) ──────────────────── */
+
 @media (max-width: 720px) {
   .shell {
     width: min(calc(100% - 1.25rem), var(--max-width));
@@ -936,5 +1065,3 @@ main {
     width: 100%;
   }
 }
-
-

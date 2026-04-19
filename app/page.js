@@ -1,3 +1,5 @@
+import TopBar from "./components/TopBar";
+
 const highlights = [
   "Free inspection with any repair service",
   "Transparent, no-haggle pricing models",
@@ -46,7 +48,7 @@ const services = [
 ];
 
 const metrics = [
-  { value: "2016", label: "Year founded", accent: true },
+  { value: "2016", label: "Year founded" },
   { value: "2,456+", label: "Doors installed" },
   { value: "3,214+", label: "Projects completed" },
   { value: "4.9/5", label: "Average rating" }
@@ -240,400 +242,372 @@ function Icon({ name, className = "" }) {
   }
 }
 
-function NavLink({ href, children, active = false }) {
-  return (
-    <a className={`nav-link${active ? " active" : ""}`} href={href}>
-      {children}
-    </a>
-  );
-}
-
 function SectionEyebrow({ children }) {
   return <span className="eyebrow">{children}</span>;
 }
 
 export default function HomePage() {
   return (
-    <main>
-      <nav className="topbar">
-        <div className="shell topbar-inner">
-          <a className="brand" href="#top">
-            College Park Garage Pros
-          </a>
-          <div className="nav-links">
-            <NavLink href="#top" active>
-              Home
-            </NavLink>
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#gallery">Gallery</NavLink>
-            <NavLink href="#reviews">Reviews</NavLink>
-          </div>
-          <div className="topbar-actions">
-            <a className="phone-link desktop-only" href="tel:4045550199">
-              (404) 555-0199
-            </a>
-            <a className="button button-primary button-small" href="#contact">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      <section className="hero" id="top">
-        <div className="shell hero-content">
-          <div className="hero-copy">
-            <SectionEyebrow>Emergency service available</SectionEyebrow>
-            <h1>Most Trusted and Affordable Garage Door Experts</h1>
-            <p>
-              Fast, reliable garage door repairs and installations in College
-              Park. We bring technical precision and structural security back
-              to your home, 24/7.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#contact">
-                <span>Get a Free Quote</span>
-                <Icon name="arrow" />
-              </a>
-              <a className="button button-glass" href="tel:4045550199">
-                <Icon name="phone" />
-                <span>(404) 555-0199</span>
-              </a>
+    <>
+      <a href="#top" className="skip-link">Skip to main content</a>
+      <TopBar />
+      <main>
+        <section className="hero" id="top">
+          <div className="shell hero-content">
+            <div className="hero-copy">
+              <SectionEyebrow>Emergency service available</SectionEyebrow>
+              <h1>Most Trusted and Affordable Garage Door Experts</h1>
+              <p>
+                Fast, reliable garage door repairs and installations in College
+                Park. We bring technical precision and structural security back
+                to your home, 24/7.
+              </p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="#contact">
+                  <span>Get a Free Quote</span>
+                  <Icon name="arrow" />
+                </a>
+                <a className="button button-glass" href="tel:4045550199">
+                  <Icon name="phone" />
+                  <span>(404) 555-0199</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="hero-blueprint" aria-hidden="true">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6mf9hlYZtvtVjRG13v9gD7yfPDsps-To1-6E37kRtbcLv92QFfzNjW0hGIJ2tq0OQdjvQvvr3lErQsTjO3qIEPgd_YDVkiUGtPs-lc5xyqzhfRaYESg2G0i0O36MBd-JZCtAse9KejlhfSZCbYWHpzi8A7sDB47-4pgD5DSwMkO4WDyV681xKEhcdCR4QRZ3n0HG4uIO6gSJih-y4ua-jWUWrXMUOKyOJYKTMFq7a7xEoXkNv9TwPpuNtrKJqJakByoFReKe-W5E"
-            alt=""
-          />
-        </div>
-      </section>
+        </section>
 
-      <section className="section section-bright">
-        <div className="shell feature-grid">
-          <div>
-            <h2>
-              Top-Quality Garage Door Service At Prices You Can Actually Afford
-            </h2>
-            <p className="section-copy">
-              Whether it&apos;s a snapped spring in the middle of the night or a
-              complete upgrade for your home&apos;s curb appeal, we provide
-              editorial-grade precision for every bolt and panel.
-            </p>
-            <ul className="check-list">
-              {highlights.map((item) => (
-                <li key={item}>
-                  <Icon name="check" className="accent-icon" />
-                  <span>{item}</span>
-                </li>
+        <section className="section section-bright">
+          <div className="shell feature-grid">
+            <div>
+              <h2>
+                Top-Quality Garage Door Service At Prices You Can Actually Afford
+              </h2>
+              <p className="section-copy">
+                Whether it&apos;s a snapped spring in the middle of the night or a
+                complete upgrade for your home&apos;s curb appeal, we provide
+                editorial-grade precision for every bolt and panel.
+              </p>
+              <ul className="check-list">
+                {highlights.map((item) => (
+                  <li key={item}>
+                    <Icon name="check" className="accent-icon" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="image-stack">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHwoEtN7yVm0HD-1KJ3YTLCJtcUieuoZH-EYyc5vTcRAjrNfTRCqHZX_SNlyoAJu0H7SN56SVtms-SlFg9nY2tD5yVhaKJ6BgQhYQxbiCaLY7zeIeIPCuS-e9o6XfgNixNOnG48j79OKh06p3GrWQX8gb-X9P5MxyIn1qYJRP3E80dJJ3tv5vsfRS4Ce0k7JmTtAde_92r8eorNyj7WX3XwXQhmOmHNUBCBh_GRSyMM4XguAOtuqoqcgF-nGCcfhqUfhc_MZ_LvEc"
+                alt="Modern garage door installation on a contemporary home."
+                loading="lazy"
+              />
+              <div className="image-accent image-accent-red" />
+              <div className="image-accent image-accent-navy" />
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-muted" id="gallery">
+          <div className="shell">
+            <div className="section-heading section-heading-center">
+              <h2>Transformation Results</h2>
+              <div className="heading-bar" />
+            </div>
+            <div className="transformation-grid">
+              {transformations.map((item) => (
+                <article className="transformation-card" key={item.caption}>
+                  <div className="before-after-grid">
+                    <div>
+                      <span className="label muted">Before</span>
+                      <img src={item.before} alt="Before garage door project." loading="lazy" />
+                    </div>
+                    <div>
+                      <span className="label accent">After</span>
+                      <img src={item.after} alt="Completed garage door project." loading="lazy" />
+                    </div>
+                  </div>
+                  <p>{item.caption}</p>
+                </article>
               ))}
-            </ul>
+            </div>
           </div>
-          <div className="image-stack">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHwoEtN7yVm0HD-1KJ3YTLCJtcUieuoZH-EYyc5vTcRAjrNfTRCqHZX_SNlyoAJu0H7SN56SVtms-SlFg9nY2tD5yVhaKJ6BgQhYQxbiCaLY7zeIeIPCuS-e9o6XfgNixNOnG48j79OKh06p3GrWQX8gb-X9P5MxyIn1qYJRP3E80dJJ3tv5vsfRS4Ce0k7JmTtAde_92r8eorNyj7WX3XwXQhmOmHNUBCBh_GRSyMM4XguAOtuqoqcgF-nGCcfhqUfhc_MZ_LvEc"
-              alt="Modern garage door installation on a contemporary home."
-            />
-            <div className="image-accent image-accent-red" />
-            <div className="image-accent image-accent-navy" />
-          </div>
-        </div>
-      </section>
-      <section className="section section-muted" id="gallery">
-        <div className="shell">
-          <div className="section-heading section-heading-center">
-            <h2>Transformation Results</h2>
-            <div className="heading-bar" />
-          </div>
-          <div className="transformation-grid">
-            {transformations.map((item) => (
-              <article className="transformation-card" key={item.caption}>
-                <div className="before-after-grid">
-                  <div>
-                    <span className="label muted">Before</span>
-                    <img src={item.before} alt="Before garage door project." />
+        </section>
+
+        <section className="section section-white" id="services">
+          <div className="shell">
+            <div className="section-heading split-heading">
+              <div>
+                <h2>Comprehensive Care</h2>
+                <p className="section-copy">
+                  From the smallest spring to the most complex smart-system
+                  integration, we treat every garage door with architectural
+                  precision.
+                </p>
+              </div>
+              <a className="inline-link" href="#contact">
+                <span>Explore all services</span>
+                <Icon name="chevron" />
+              </a>
+            </div>
+            <div className="service-grid">
+              {services.map((service) => (
+                <article className="service-card" key={service.title}>
+                  <div className="service-icon">
+                    <Icon name={service.icon} />
                   </div>
-                  <div>
-                    <span className="label accent">After</span>
-                    <img src={item.after} alt="Completed garage door project." />
-                  </div>
-                </div>
-                <p>{item.caption}</p>
-              </article>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <ul>
+                    {service.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="metrics-band">
+          <div className="shell metrics-grid">
+            {metrics.map((metric) => (
+              <div className="metric" key={metric.label}>
+                <div className="metric-value">{metric.value}</div>
+                <div className="metric-label">{metric.label}</div>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section section-white" id="services">
-        <div className="shell">
-          <div className="section-heading split-heading">
+        <section className="section section-default">
+          <div className="shell choose-grid">
             <div>
-              <h2>Comprehensive Care</h2>
+              <h2>The Precision Standard: Why Homeowners Choose Us</h2>
+              <div className="benefit-list">
+                {benefits.map((benefit) => (
+                  <article className="benefit-item" key={benefit.title}>
+                    <div className="benefit-icon">
+                      <Icon name={benefit.icon} className="accent-icon" />
+                    </div>
+                    <div>
+                      <h3>{benefit.title}</h3>
+                      <p>{benefit.description}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="mosaic-grid">
+              <img
+                className="mosaic-tall"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuyfanAi9xLlIs2sH7mw9I43yvu__PfImuKLVG1Dz7J1YarW4eAukZyVyKwA80Upo3Tg7NTRLIhi4Ns7yHcRT5npYD_jCxHLmGBe6mdzqYwhxrRm1T-DVt5IM-cg_964QKVbHt4GqZii9NW56ONRA7TU8i-sOiJKpJ3UMt8om5CUJBQhdEAYLvliEM-Xqy6sts9wDeRK46PKjBw433Mx-Lq_JAgtSuTCevNU8IsvsekM9YV-2T1RQ94yTQyKQmcwi6KPecn91Daw"
+                alt="Garage door showroom options."
+                loading="lazy"
+              />
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJskTxJCyQsjFMGewFaK16xQfnG6gnnLWb0Z4FWrblWs-4gRc2fBd4VNxP9Vi_ZswbWGWF0Ijec3U9WZWqBV6fG2uH68Zv-6glGp5p7xpA1c2V2kty-KvpJtTk2s7npG6GWzKtqlD221QqSuaOCmiF3drpTbI5Pd-luVbSO39TEnZ0jHRAzrfBgjBVdn8lhdd_oA3AhwPCVdzaD2RaOrIqWZt1Po0d07NT9gXGFIelHFiXJyJodwHWrCRYtrlwJBeJ1HjZQLqegMY"
+                alt="Precision garage door hardware."
+                loading="lazy"
+              />
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdVuIwCGvMmns1oZ7gco0wdoHwR2Cs7NuP-tfjRBR4J4lKy2jKe9Vw7ulp80seGPm-ASTJTafegAd8cjImb23uws5CS0-k4AYnugWxHYxUnd6TesEuS3DwdX_dzEDQV6xRzS5GnE_jOrll7RH4cZCqh6qxP-0Txkn_00K8fCVAHhIUjREFUz6UpYIszKdpC4mqKUTs5_vfNGVo8Ttdq1y-bh7yzOYdIiFePmBmh3Ch_y7NDhELDIHq_vpSdPzSijXDFCTTZ6xoolI"
+                alt="Technician tools prepared for service."
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-high" id="reviews">
+          <div className="shell">
+            <div className="section-heading section-heading-center">
+              <h2>What Our Customers Say</h2>
               <p className="section-copy">
-                From the smallest spring to the most complex smart-system
-                integration, we treat every garage door with architectural
-                precision.
+                Real feedback from satisfied College Park residents.
               </p>
             </div>
-            <a className="inline-link" href="#contact">
-              <span>Explore all services</span>
-              <Icon name="chevron" />
-            </a>
-          </div>
-          <div className="service-grid">
-            {services.map((service) => (
-              <article className="service-card" key={service.title}>
-                <div className="service-icon">
-                  <Icon name={service.icon} />
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <ul>
-                  {service.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="metrics-band">
-        <div className="shell metrics-grid">
-          {metrics.map((metric) => (
-            <div className="metric" key={metric.label}>
-              <div className={`metric-value${metric.accent ? " accent" : ""}`}>
-                {metric.value}
-              </div>
-              <div className="metric-label">{metric.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section section-default">
-        <div className="shell choose-grid">
-          <div>
-            <h2>The Precision Standard: Why Homeowners Choose Us</h2>
-            <div className="benefit-list">
-              {benefits.map((benefit) => (
-                <article className="benefit-item" key={benefit.title}>
-                  <div className="benefit-icon">
-                    <Icon name={benefit.icon} className="accent-icon" />
+            <div className="review-grid">
+              {reviews.map((review) => (
+                <article className="review-card" key={review.name}>
+                  <div className="stars" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Icon key={index} name="star" className="star-icon" />
+                    ))}
                   </div>
-                  <div>
-                    <h3>{benefit.title}</h3>
-                    <p>{benefit.description}</p>
+                  <p className="review-quote">&quot;{review.quote}&quot;</p>
+                  <div className="reviewer">
+                    <div className="reviewer-badge">{review.initials}</div>
+                    <div>
+                      <strong>{review.name}</strong>
+                      <span>{review.role}</span>
+                    </div>
                   </div>
                 </article>
               ))}
             </div>
           </div>
-          <div className="mosaic-grid">
-            <img
-              className="mosaic-tall"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuyfanAi9xLlIs2sH7mw9I43yvu__PfImuKLVG1Dz7J1YarW4eAukZyVyKwA80Upo3Tg7NTRLIhi4Ns7yHcRT5npYD_jCxHLmGBe6mdzqYwhxrRm1T-DVt5IM-cg_964QKVbHt4GqZii9NW56ONRA7TU8i-sOiJKpJ3UMt8om5CUJBQhdEAYLvliEM-Xqy6sts9wDeRK46PKjBw433Mx-Lq_JAgtSuTCevNU8IsvsekM9YV-2T1RQ94yTQyKQmcwi6KPecn91Daw"
-              alt="Garage door showroom options."
-            />
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJskTxJCyQsjFMGewFaK16xQfnG6gnnLWb0Z4FWrblWs-4gRc2fBd4VNxP9Vi_ZswbWGWF0Ijec3U9WZWqBV6fG2uH68Zv-6glGp5p7xpA1c2V2kty-KvpJtTk2s7npG6GWzKtqlD221QqSuaOCmiF3drpTbI5Pd-luVbSO39TEnZ0jHRAzrfBgjBVdn8lhdd_oA3AhwPCVdzaD2RaOrIqWZt1Po0d07NT9gXGFIelHFiXJyJodwHWrCRYtrlwJBeJ1HjZQLqegMY"
-              alt="Precision garage door hardware."
-            />
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdVuIwCGvMmns1oZ7gco0wdoHwR2Cs7NuP-tfjRBR4J4lKy2jKe9Vw7ulp80seGPm-ASTJTafegAd8cjImb23uws5CS0-k4AYnugWxHYxUnd6TesEuS3DwdX_dzEDQV6xRzS5GnE_jOrll7RH4cZCqh6qxP-0Txkn_00K8fCVAHhIUjREFUz6UpYIszKdpC4mqKUTs5_vfNGVo8Ttdq1y-bh7yzOYdIiFePmBmh3Ch_y7NDhELDIHq_vpSdPzSijXDFCTTZ6xoolI"
-              alt="Technician tools prepared for service."
-            />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section section-high" id="reviews">
-        <div className="shell">
-          <div className="section-heading section-heading-center">
-            <h2>What Our Customers Say</h2>
-            <p className="section-copy">
-              Real feedback from satisfied College Park residents.
-            </p>
-          </div>
-          <div className="review-grid">
-            {reviews.map((review) => (
-              <article className="review-card" key={review.name}>
-                <div className="stars" aria-label="5 out of 5 stars">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Icon key={index} name="star" className="star-icon" />
-                  ))}
+        <section className="section section-white">
+          <div className="shell team-grid">
+            <div>
+              <img
+                className="team-photo"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlUfPIplwUj0lSU3rDYHKqGlb5nTJ_4BHhKm25bWSURabPWHampM6yuhJHb8aTqeYFa3KQhIoYdZ9ysZCex9nFKyfLhFF_6iZEVgCGHFSEqiTouONDqIgeKvsngxC17rIVc-XJnLgMUkR4WoMLaNdKzsE_yk9Y7suoDc166M2rfLxOH21NLFmn-pVCKz0tlzaheZi2gMjwQmQdQsLBJu2h8AE2qRk5nFAtEtUqtUgAjXv7qL0taCYHJQpDaWUGWmDpwz9olT7vXfY"
+                alt="Garage door technicians standing by a service vehicle."
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2>Work With Well-Qualified Technicians</h2>
+              <p className="section-copy">
+                We don&apos;t use subcontractors. Every technician at College Park
+                Garage Pros is a background-checked, full-time employee who takes
+                pride in structural security and customer satisfaction.
+              </p>
+              <div className="credential-list">
+                <div className="credential-card">
+                  <Icon name="shield" className="accent-icon" />
+                  <span>Fully licensed, bonded and insured</span>
                 </div>
-                <p className="review-quote">&quot;{review.quote}&quot;</p>
-                <div className="reviewer">
-                  <div className="reviewer-badge">{review.initials}</div>
-                  <div>
-                    <strong>{review.name}</strong>
-                    <span>{review.role}</span>
-                  </div>
+                <div className="credential-card">
+                  <Icon name="award" className="accent-icon" />
+                  <span>Factory certified by major brands</span>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section section-white">
-        <div className="shell team-grid">
-          <div>
-            <img
-              className="team-photo"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlUfPIplwUj0lSU3rDYHKqGlb5nTJ_4BHhKm25bWSURabPWHampM6yuhJHb8aTqeYFa3KQhIoYdZ9ysZCex9nFKyfLhFF_6iZEVgCGHFSEqiTouONDqIgeKvsngxC17rIVc-XJnLgMUkR4WoMLaNdKzsE_yk9Y7suoDc166M2rfLxOH21NLFmn-pVCKz0tlzaheZi2gMjwQmQdQsLBJu2h8AE2qRk5nFAtEtUqtUgAjXv7qL0taCYHJQpDaWUGWmDpwz9olT7vXfY"
-              alt="Garage door technicians standing by a service vehicle."
-            />
-          </div>
-          <div>
-            <h2>Work With Well-Qualified Technicians</h2>
-            <p className="section-copy">
-              We don&apos;t use subcontractors. Every technician at College Park
-              Garage Pros is a background-checked, full-time employee who takes
-              pride in structural security and customer satisfaction.
-            </p>
-            <div className="credential-list">
-              <div className="credential-card">
-                <Icon name="shield" className="accent-icon" />
-                <span>Fully licensed, bonded and insured</span>
-              </div>
-              <div className="credential-card">
-                <Icon name="award" className="accent-icon" />
-                <span>Factory certified by major brands</span>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section section-default">
-        <div className="shell faq-shell">
-          <div className="section-heading section-heading-center">
-            <h2>Frequently Asked Questions</h2>
-          </div>
-          <div className="faq-list">
-            {faqs.map((faq, index) => (
-              <details className="faq-item" key={faq.question} open={index === 0}>
-                <summary>
-                  <span>{faq.question}</span>
-                  <span className="faq-plus">+</span>
-                </summary>
-                <p>{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-navy">
-        <div className="shell areas-grid">
-          <div>
-            <h2>Service Areas</h2>
-            <p className="section-copy section-copy-light">
-              We proudly serve College Park, GA, and all surrounding
-              communities with top-tier garage door solutions.
-            </p>
-            <div className="area-list">
-              {serviceAreas.map((area) => (
-                <div className="area-item" key={area}>
-                  <Icon name="location" className="accent-icon" />
-                  <span>{area}</span>
-                </div>
+        <section className="section section-default">
+          <div className="shell faq-shell">
+            <div className="section-heading section-heading-center">
+              <h2>Frequently Asked Questions</h2>
+            </div>
+            <div className="faq-list">
+              {faqs.map((faq, index) => (
+                <details className="faq-item" key={faq.question} open={index === 0}>
+                  <summary>
+                    <span>{faq.question}</span>
+                    <span className="faq-plus" aria-hidden="true" />
+                  </summary>
+                  <p>{faq.answer}</p>
+                </details>
               ))}
             </div>
           </div>
-          <div className="map-frame">
-            <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxI1SJ__Oa7VmX21Pp0yP_01FrE1r03p_02zEpn0kOsZcvmsh40S2MB1PJEOY-laQYDZc_Y_7wdm2kuN5zRVe9sq3j10YBqvDo3QEAnFmFKTnqOYkJ7pSBk8cTwxSmbRDNwRCIJ5KV1yxT-qAQ6gkdVNrCppppi6dA22e_RcyueDqiunr6uIXPCGrwDFNzhkjkInwQJAdr0oTGxd0IQmrSY9EORZ0jB0feUN4z_SW4TKOtYRDZR1R7TGGiNgnTWLGudM6z4KDD0tg"
-              alt="Map view of the College Park, Georgia area."
-            />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section section-white" id="contact">
-        <div className="shell">
-          <div className="contact-card">
-            <div className="contact-sidebar">
-              <h2>Ready to Fix, Upgrade, or Replace Your Garage Door?</h2>
-              <p>
-                Fill out our form for a free, no-obligation estimate or call us
-                directly for immediate emergency service.
+        <section className="section section-navy">
+          <div className="shell areas-grid">
+            <div>
+              <h2>Service Areas</h2>
+              <p className="section-copy section-copy-light">
+                We proudly serve College Park, GA, and all surrounding
+                communities with top-tier garage door solutions.
               </p>
-              <a className="contact-phone" href="tel:4045550199">
-                <span className="contact-phone-icon">
-                  <Icon name="phone" />
-                </span>
-                <span>(404) 555-0199</span>
+              <div className="area-list">
+                {serviceAreas.map((area) => (
+                  <div className="area-item" key={area}>
+                    <Icon name="location" className="accent-icon" />
+                    <span>{area}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="map-frame">
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxI1SJ__Oa7VmX21Pp0yP_01FrE1r03p_02zEpn0kOsZcvmsh40S2MB1PJEOY-laQYDZc_Y_7wdm2kuN5zRVe9sq3j10YBqvDo3QEAnFmFKTnqOYkJ7pSBk8cTwxSmbRDNwRCIJ5KV1yxT-qAQ6gkdVNrCppppi6dA22e_RcyueDqiunr6uIXPCGrwDFNzhkjkInwQJAdr0oTGxd0IQmrSY9EORZ0jB0feUN4z_SW4TKOtYRDZR1R7TGGiNgnTWLGudM6z4KDD0tg"
+                alt="Map view of the College Park, Georgia area."
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-white" id="contact">
+          <div className="shell">
+            <div className="contact-card">
+              <div className="contact-sidebar">
+                <h2>Ready to Fix, Upgrade, or Replace Your Garage Door?</h2>
+                <p>
+                  Fill out our form for a free, no-obligation estimate or call us
+                  directly for immediate emergency service.
+                </p>
+                <a className="contact-phone" href="tel:4045550199">
+                  <span className="contact-phone-icon">
+                    <Icon name="phone" />
+                  </span>
+                  <span>(404) 555-0199</span>
+                </a>
+              </div>
+              <div className="contact-form-wrap">
+                <form className="quote-form">
+                  <label>
+                    <span>Name</span>
+                    <input type="text" placeholder="Your Name" />
+                  </label>
+                  <label>
+                    <span>Phone</span>
+                    <input type="tel" placeholder="Your Phone Number" />
+                  </label>
+                  <label className="full">
+                    <span>Service Needed</span>
+                    <select defaultValue="Repair Service">
+                      <option>Repair Service</option>
+                      <option>New Installation</option>
+                      <option>Opener Repair/Replacement</option>
+                      <option>Maintenance Tune-up</option>
+                    </select>
+                  </label>
+                  <label className="full">
+                    <span>Message</span>
+                    <textarea placeholder="How can we help?" rows="4" />
+                  </label>
+                  <button className="button button-primary full submit-button" type="submit">
+                    Submit Request
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="site-footer">
+          <div className="shell footer-grid">
+            <div>
+              <div className="footer-brand">College Park Garage Pros</div>
+              <p>
+                Professional garage door services for residential and commercial
+                properties. Reliable, affordable, and expert-driven.
+              </p>
+            </div>
+            <div>
+              <h3>Services</h3>
+              <a href="#contact">Emergency repairs</a>
+              <a href="#services">Installation</a>
+              <a href="#services">Maintenance</a>
+            </div>
+            <div>
+              <h3>Quick Links</h3>
+              <a href="#top">Service areas</a>
+              <a href="#contact">Privacy policy</a>
+              <a href="#gallery">Gallery</a>
+            </div>
+            <div>
+              <h3>Contact Info</h3>
+              <p>College Park, GA</p>
+              <a className="footer-phone" href="tel:4045550199">
+                (404) 555-0199
               </a>
             </div>
-            <div className="contact-form-wrap">
-              <form className="quote-form">
-                <label>
-                  <span>Name</span>
-                  <input type="text" placeholder="Your Name" />
-                </label>
-                <label>
-                  <span>Phone</span>
-                  <input type="tel" placeholder="Your Phone Number" />
-                </label>
-                <label className="full">
-                  <span>Service Needed</span>
-                  <select defaultValue="Repair Service">
-                    <option>Repair Service</option>
-                    <option>New Installation</option>
-                    <option>Opener Repair/Replacement</option>
-                    <option>Maintenance Tune-up</option>
-                  </select>
-                </label>
-                <label className="full">
-                  <span>Message</span>
-                  <textarea placeholder="How can we help?" rows="4" />
-                </label>
-                <button className="button button-primary full submit-button" type="submit">
-                  Submit Request
-                </button>
-              </form>
-            </div>
           </div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <div className="shell footer-grid">
-          <div>
-            <div className="footer-brand">College Park Garage Pros</div>
-            <p>
-              Professional garage door services for residential and commercial
-              properties. Reliable, affordable, and expert-driven.
-            </p>
+          <div className="shell footer-bottom">
+            <p>Copyright 2026 College Park Garage Pros. All rights reserved.</p>
           </div>
-          <div>
-            <h3>Services</h3>
-            <a href="#contact">Emergency repairs</a>
-            <a href="#services">Installation</a>
-            <a href="#services">Maintenance</a>
-          </div>
-          <div>
-            <h3>Quick Links</h3>
-            <a href="#top">Service areas</a>
-            <a href="#contact">Privacy policy</a>
-            <a href="#gallery">Gallery</a>
-          </div>
-          <div>
-            <h3>Contact Info</h3>
-            <p>College Park, GA</p>
-            <a className="footer-phone" href="tel:4045550199">
-              (404) 555-0199
-            </a>
-          </div>
-        </div>
-        <div className="shell footer-bottom">
-          <p>Copyright 2026 College Park Garage Pros. All rights reserved.</p>
-        </div>
-      </footer>
-    </main>
+        </footer>
+      </main>
+    </>
   );
 }
